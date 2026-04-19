@@ -47,18 +47,22 @@ class AlienContact(BaseModel):
     @model_validator(mode="after")
     def check_business_rules(self) -> "AlienContact":
         """Rules after basic validation."""
+        # Rule 1: Contact ID
         if not self.contact_id.startswith("AC"):
             raise ValueError('Contact ID must start with "AC"')
 
+        # Rule 2: Verified physical contact reports
         if self.contact_type == ContactType.PHYSICAL and not self.is_verified:
             raise ValueError("Physical contact reports must be verified")
 
+        # Rule 3: Telepathic witness count
         if (self.contact_type == ContactType.TELEPATHIC
                 and self.witness_count < 3):
             raise ValueError(
                 "Telepathic contact requires at least 3 witnesses"
             )
 
+        # Rule 4: Messages for strong signals
         if self.signal_strength > 7.0 and not self.message_received:
             raise ValueError(
                 "Strong signals (> 7.0) should include received messages"
