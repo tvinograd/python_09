@@ -87,9 +87,9 @@ def main() -> None:
     # Valid report
     contact = AlienContact(
         contact_id="AC_2024_001",
-        timestamp="2026-04-13",
+        timestamp=datetime(2026, 4, 13),
         location="Area 51, Nevada",
-        contact_type="radio",
+        contact_type=ContactType.RADIO,
         signal_strength=8.5,
         duration_minutes=45,
         witness_count=5,
@@ -102,9 +102,9 @@ def main() -> None:
     try:
         AlienContact(
             contact_id="AC_2024_002",
-            timestamp="2026-04-13",
+            timestamp=datetime(2026, 4, 13),
             location="Area 51, Nevada",
-            contact_type="telepathic",
+            contact_type=ContactType.TELEPATHIC,
             signal_strength=5,
             duration_minutes=45,
             witness_count=1,

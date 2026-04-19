@@ -41,7 +41,7 @@ def main() -> None:
         crew_size=6,
         power_level=85.5,
         oxygen_level=92.3,
-        last_maintenance="2026-04-13"
+        last_maintenance=datetime(2026, 4, 13)
     )
 
     status = "Operational" if station.is_operational else "Not operational"
@@ -62,7 +62,7 @@ def main() -> None:
             crew_size=60,
             power_level=85.5,
             oxygen_level=92.3,
-            last_maintenance="2026-04-13",
+            last_maintenance=datetime(2026, 4, 13)
         )
     except ValidationError as e:
         print("Expected validation error:")
